@@ -1,0 +1,35 @@
+<c:FragmentDefinition
+	xmlns="sap.m"
+	xmlns:c="sap.ui.core"
+	xmlns:l="sap.ui.layout"
+	>
+	<Dialog id="loginDialog" title="Login to BoLT">
+		<content>
+			<c:Icon
+				src="sap-icon://log"
+				size="4rem"
+				class="sapUiMediumMargin"
+				/>
+			<l:VerticalLayout>
+				<Input
+					id = "idusername"
+					value=""
+					placeholder="Username"
+					valueLiveUpdate="true"
+					width="10rem"/>
+				<Input
+					id = "idpassword"
+					value=""
+					placeholder="Password"
+					valueLiveUpdate="true"
+					width="10rem"/>
+			</l:VerticalLayout>
+		</content>
+		<beginButton>
+			<Button text="{i18n>loginCloseButton}" press=".onCloseDialog"/>
+		</beginButton>
+		<endButton>
+			<Button text="{i18n>loginNextButton}" press=".onLoginDialog"/>
+		</endButton>
+	</Dialog>
+</c:FragmentDefinition>

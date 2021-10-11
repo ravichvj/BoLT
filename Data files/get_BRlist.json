@@ -1,0 +1,52 @@
+{
+    "Brlist": [
+        {
+            "BR_no": "BR1001",
+			"Project_id": "PJ001",
+			"Project_name": "Project_Chaplin",
+            "BR_createDate": "29 June 2021",
+            "BR_lastchangeDate": "4 July 2021",
+            "BR_status": "Completed",
+            "BR_owner": "Raja",
+            "BR_reviewer": "Smitha",
+            "BR_objecttypes": "InfoObject, ADSO",
+            "BR_numberofobjects": 20
+        },
+        {
+            "BR_no": "BR1002",
+			"Project_id": "PJ001",
+			"Project_name": "Project_Chaplin",
+            "BR_createDate": "29 June 2021",
+            "BR_lastchangeDate": "30 June 2021",
+            "BR_status": "Error",
+            "BR_owner": "Rahul",
+            "BR_reviewer": "Smitha",
+            "BR_objecttypes": "ADSO",
+            "BR_numberofobjects": 3
+        },
+        {
+            "BR_no": "BR1003",
+			"Project_id": "PJ003",
+			"Project_name": "Project_Brutus",
+            "BR_createDate": "30 June 2021",
+            "BR_lastchangeDate": "2 July 2021",
+            "BR_status": "Completed",
+            "BR_owner": "Rahul",
+            "BR_reviewer": "Arun",
+            "BR_objecttypes": "InfoObject",
+            "BR_numberofobjects": 8
+        },
+        {
+            "BR_no": "BR1004",
+			"Project_id": "PMG1",
+			"Project_name": "Project_Xamarin",
+            "BR_createDate": "1 July 2021",
+            "BR_lastchangeDate": "4 July 2021",
+            "BR_status": "In Review",
+            "BR_owner": "Smitha",
+            "BR_reviewer": "Arun",
+            "BR_objecttypes": "InfoObject",
+            "BR_numberofobjects": 2
+        }
+    ]
+}

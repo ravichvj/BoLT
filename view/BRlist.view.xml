@@ -1,0 +1,90 @@
+<mvc:View
+    controllerName="sap.ui.demo.walkthrough.controller.BRlist"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    displayBlock="true"
+    >
+                    <Table
+                        id="TabBRList"
+                        class = "sapUiSizeCompact"
+                        growing="true"
+                        growingThreshold="10"
+                        fixedLayout="false"
+                        items="{path:'BRlist>/ZBOLT_WP_HEADERSet', parameters: { $count: true }}">
+                        <headerToolbar>
+                            <OverflowToolbar class="sapUiForceWidthAuto sapUiMediumMarginBeginEnd">
+                                <content>
+                                    <ToolbarSpacer/>
+                                    <Button
+                                        id="ProjectChart_button"
+                                        icon="sap-icon://pie-chart"
+                                        tooltip="{i18n>BRlist_chart_buttontext}"
+                                        press=".onBRlistSort"/>
+                                    <Button
+                                        id="ProjectList_button"
+                                        icon="sap-icon://multi-select"
+                                        tooltip="{i18n>BRlist_list_buttontext}"
+                                        press=".onBRlistSort"/>
+                                    <Button
+                                        id="ProjectExport_button"
+                                        icon="sap-icon://excel-attachment"
+                                        tooltip="{i18n>BRlist_exportbuttontext}"
+                                        press=".onBRlistSort"/>
+                                    <SearchField
+                                        id="BRlistsearchField"
+                                        width="20%"
+                                        placeholder="{i18n>BRlist_searchfieldplaceholder}"
+                                        search=".onBRSearch"/>
+                                    <Button
+                                        id="ProjectValidate_button"
+                                        icon="sap-icon://validate"
+                                        tooltip="{i18n>BRlist_validatebuttontext}"
+                                        press=".onBRlistReset"/>
+                                    <Button
+                                        id="AddWorkpackage_button"
+                                        icon="sap-icon://sys-add"
+                                        tooltip="{i18n>BRlist_addworkpackagetext}"
+                                        press=".onBRFileUpload"/>
+                                    <Button
+                                        id="BRlistresetButton"
+                                        icon="sap-icon://reset"
+                                        tooltip="{i18n>BRlist_resetbuttontext}"
+                                        press=".onBRlistReset"/>
+                                    <Button
+                                        id="BRlistsortButton"
+                                        icon="sap-icon://sort"
+                                        tooltip="{i18n>BRlist_sortbuttontext}"
+                                        press=".onBRlistSort"/>
+                                </content>
+                            </OverflowToolbar>
+                        </headerToolbar>
+                        <columns>
+                            <Column width="auto">
+                                <Text text="Project id" />
+                            </Column>
+                            <Column width="auto">
+                                <Text text="Project name" />
+                            </Column>
+                            <Column width="auto">
+                                <Text text="Workpackage id" />
+                            </Column>
+                            <Column width="auto">
+                                <Text text="Workpackage version" />
+                            </Column>
+                            <Column width="auto">
+                                <Text text="Version" />
+                            </Column>
+                        </columns>
+                        <items>
+                            <ColumnListItem>
+                            <cells>
+                                <Text text="{BRlist>WpidProjectid}"/>
+                                <Text text="{BRlist>WpidProjectname}"/>
+                                <Text text="{BRlist>WpId}"/>
+                                <Text text="{BRlist>WpidVersion}"/>
+                                <Text text="{BRlist>WpidVersion}"/>                              
+                            </cells>
+                            </ColumnListItem>
+                        </items>
+                    </Table>
+</mvc:View>

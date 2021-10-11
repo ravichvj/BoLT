@@ -1,0 +1,25 @@
+ /* Class 1:  */
+html [dir = 'ltr'].BoLT_page1Css.myCustomButton.sapMBtn {
+    margin-right: 0.125rem;
+}
+
+html [dir = 'rtl'].BoLT_page1Css.myCustomButton.sapMBtn {
+    margin-left: 0.125rem;
+}
+
+.BoLT_page1Css {
+    display: inline-block;
+    font-weight: bold;
+}
+ /* Class 2:  */
+.BoLT_ViewCss {
+    display: inline-block;
+    font-weight: bold;
+
+}
+ /* Class 3:  */
+.BoLT_ViewCss_BRlist {
+    margin: auto;
+    border: 3px solid green;
+    padding: 10px;
+}

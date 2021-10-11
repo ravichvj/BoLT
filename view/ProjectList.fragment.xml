@@ -1,0 +1,24 @@
+<c:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    >
+    <Dialog id="idProjectListDialog" title="{i18n>ProjectlistDialogTitle}">
+        <content>
+            <List
+                id="idProjectList"
+                class="sapUiResponsiveMargin"
+                width="auto"
+                items="{Projectlist>/Projectlist}">
+                <items>
+                    <ObjectListItem
+                        title="{Projectlist>Project_name}"
+                        press=".onProjectSelectDialog"
+                        type="Active"/>
+                </items>
+            </List>
+        </content>
+        <beginButton>
+            <Button text="{i18n>ProjectlistCancel}" press=".onCloseDialog"/>
+        </beginButton>
+    </Dialog>
+</c:FragmentDefinition>

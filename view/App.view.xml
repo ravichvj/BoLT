@@ -1,0 +1,42 @@
+<mvc:View
+    controllerName="sap/ui/demo/walkthrough/controller/App"
+    xmlns="sap.m"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns:tnt="sap.tnt"
+    xmlns:l="sap.ui.layout"
+    displayBlock="true">
+
+    <!-- Product Title, to be available in all pages --> 
+    <tnt:ToolHeader design="Transparent">
+        <Image src="images/Bosch_icon.bmp" width="8%"/>
+        <Image src="" width="22%"/>
+        <Image src="images/BoLT_Title.png" width="30%"/>
+        <Image src="" width="25%"/>
+        <l:HorizontalLayout  
+            allowWrapping="false"
+            visible="true"
+            >
+            <Button icon="sap-icon://hint" press=".onOpenProductInfo" width="5%" tooltip="Product info"/>
+            <Button icon="sap-icon://it-system" press=".onOpenProductsystemInfo" width="5%" tooltip="System info"/>
+            <Button icon="sap-icon://account" press=".onOpenLoginDialog" width="5%" tooltip="Login"/>
+        </l:HorizontalLayout>
+    </tnt:ToolHeader>
+
+    <!-- Root view, Shell, App, Pages, Panel --> 
+    <Shell>
+        <App>
+            <pages>
+                <Page title="{i18n>AppPageTitle}" class="sapThemeDarkText">
+                    <headerContent>
+                        <Button icon="sap-icon://calendar" press=".onOpenCalendar" tooltip="Calendar"/>
+                        <Button icon="sap-icon://tree" press=".onOpenProjectList" tooltip="Projects"/>
+                    </headerContent>
+                    <content>
+                        <mvc:XMLView viewName="sap/ui/demo/walkthrough/view/BRlist"/>
+                    </content>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
+
+</mvc:View>

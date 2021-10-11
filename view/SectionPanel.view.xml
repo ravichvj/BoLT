@@ -1,0 +1,70 @@
+<mvc:View
+    controllerName="sap/ui/demo/walkthrough/controller/SectionPanel"
+    xmlns:mvc="sap.ui.core.mvc"
+    xmlns="sap.m"
+    xmlns:l="sap.ui.layout"
+    >
+    <Panel headerText="Hello {/recipient/name}, {i18n>SectionHeader}"
+        class="sapUiSizeCompact"
+        width="auto">
+        <content>
+            <l:HorizontalLayout>
+                <l:VerticalLayout 
+                enabled="true"
+                width="20rem"
+                visible="true">
+                    <Button
+                        id="helloDialogButton"
+                        icon="sap-icon://list"
+                        text="{i18n>SectionOverviewButtonText}"
+                        press=".onShowHello"
+                        class="sapUiSmallMarginEnd"
+                        width="10rem"
+                        tooltip="Overview list of BRs"/>
+                    <Button
+                        text="{i18n>SectionBRcreateButtonText}"
+                        icon="sap-icon://create"
+                        press=".onBRFileUpload"
+                        class="sapUiSmallMarginEnd"
+                        width="10rem"
+                        tooltip="Create new BR"/>
+                    <Button
+                        text="{i18n>SectionBRchangeButtonText}"
+                        icon="sap-icon://journey-change"
+                        press=".onShowHello"
+                        class="sapUiSmallMarginEnd"
+                        width="10rem"
+                        tooltip="Change a BR"/>
+                    <Button
+                        text="{i18n>SectionBRcheckButtonText}"
+                        icon="sap-icon://validate"
+                        press=".onShowHello"
+                        class="sapUiSmallMarginEnd"
+                        width="10rem"
+                        tooltip="Validate a BR"/>
+                    <Button
+                        text="{i18n>SectionBRlogsButtonText}"
+                        icon="sap-icon://visits"
+                        press=".onShowHello"
+                        class="sapUiSmallMarginEnd"
+                        width="10rem"
+                        tooltip="Display Logs"/>
+                    <Button 
+                        text="{i18n>SectionBRdashboardButtonText}"
+                        icon="sap-icon://bbyd-dashboard"
+                        press=".onShowHello"
+                        class="sapUiSmallMarginEnd"
+                        width="10rem"
+                        tooltip="Display Dashboards"/>
+                </l:VerticalLayout>
+                <l:VerticalLayout
+                    enabled="true"
+                    width="50rem"
+                    visible="true"
+                >
+                <Image src="images/BoLT_process.bmp" width = "50rem"/>
+                </l:VerticalLayout>              
+            </l:HorizontalLayout>
+        </content>
+    </Panel>
+</mvc:View>

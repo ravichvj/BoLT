@@ -1,0 +1,675 @@
+<c:FragmentDefinition
+    xmlns="sap.m"
+    xmlns:c="sap.ui.core"
+    xmlns:u="sap.ui.unified"
+    xmlns:l="sap.ui.layout.form"
+    >
+    <Dialog id="idBRfileuploadform" title="{i18n>BRUploadFileDialogText_Create}" contentWidth="100rem" contentHeight="50rem">
+        <content>
+            <l:SimpleForm editable="false" layout="ResponsiveGridLayout">
+                <l:content>
+                    <VBox alignItems="Start" width = "100rem">
+                        <HBox justifyContent = "SpaceAround" width = "100rem">
+                            <VBox justifyContent = "SpaceAround" width = "50rem">
+                                <VBox justifyContent = "SpaceAround" alignItems="Start">
+                                    <Text text="Workpackage Number"/>
+                                    <Input
+                                        id="iduploadBRno"
+                                        name=""
+                                        placeholder="Enter Workpackage number"
+                                        required="true"
+                                        value=""
+                                        width = "20rem"
+                                        >
+                                    </Input>
+                                </VBox>
+                                <Text text=""/>
+                                <VBox justifyContent = "SpaceAround" alignItems="Start">
+                                    <Text text="Project Number"/>
+                                    <Input
+                                        id="iduploadPJno"
+                                        name=""
+                                        placeholder="Enter Project number"
+                                        required="true"
+                                        value=""
+                                        width = "20rem"
+                                        >
+                                    </Input>
+                                </VBox>
+                            </VBox>
+                            <VBox justifyContent = "SpaceAround" alignItems = "Start" width = "50rem">                                
+                                <Text text=""/>
+                                <u:FileUploader
+                                    id="idBRfileupload"
+                                    fileType="csv"
+                                    icon="sap-icon://browse-folder"
+                                    uploadUrl="./"
+                                    name="idBRfileuploaddata"
+                                    placeholder="{i18n>UploadFiletext}"
+                                    width="20rem"
+                                    style="Emphasized"
+                                    >
+                                </u:FileUploader>                            
+                                <HBox>
+                                    <Button
+                                        id="Techspecfileread"
+                                        icon="sap-icon://add-document"
+                                        tooltip="{i18n>uplfileadddata}"
+                                        press=".onBRUploadDialog"/>
+                                    <Text text=""/>
+                                    <Text text=""/>
+                                    <Text text=""/>
+                                </HBox>
+                            </VBox>
+                        </HBox>
+
+
+                        <Table
+                            id="TabBRListupl1"
+                            class="sapUiSizeCompact"
+                            width = "80rem"
+                            growing="true"
+                            growingThreshold="5"
+                            growingScrollToLoad="true"
+                            items="{/}">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <content>
+                                        <Title text="InfoObject Characteristics" level="H2" textAlign="Center"/>
+                                    </content>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column width="5rem">
+                                    <Text text="InfoObject name" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Catalog" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Version" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Object type" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Data type" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Owner" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Short Description" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Long Description" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="InfoArea" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Input Length" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Lower case" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Reference InfoObject" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Conversion Routine" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Output Length" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Size Category" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Data Class" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="BEX Description" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="BEX Selection" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Text Time independent Flag" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Language" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Text Short Flag" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Text Medium Flag" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Text Long flag" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Hierarchy table flag" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Hierarchy Version flag" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Hierarchy NMT flag" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Hierarchy NDT flag" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Hierarchy interval flag" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Hierarchy Join flag" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Hierarchy Sign" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Compounding Status" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Compounding InfoObject" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Attribute flag" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <Text text="{IOBJ}"/>
+                                        <Text text="{IOBJCATALOG}"/>
+                                        <Text text="{VERSION}"/>
+                                        <Text text="{OBJTYPE}"/>
+                                        <Text text="{DATATYPE}"/>
+                                        <Text text="{OWNER}"/>
+                                        <Text text="{SHDESC}"/>
+                                        <Text text="{LGDESC}"/>
+                                        <Text text="{INFOAREA}"/>
+                                        <Text text="{INLENGTH }"/>
+                                        <Text text="{LCASE}"/>
+                                        <Text text="{REFIOBJ}"/>
+                                        <Text text="{CONVROUT}"/>
+                                        <Text text="{OUTLENGTH}"/>
+                                        <Text text="{IOBJSIZCAT}"/>
+                                        <Text text="{IOBJDATCLS}"/>
+                                        <Text text="{BEXDESC}"/>
+                                        <Text text="{BEXSEL}"/>
+                                        <Text text="{TXTTIMFL}"/>
+                                        <Text text="{LANGU}"/>
+                                        <Text text="{TXTSHFL}"/>
+                                        <Text text="{TXTMDFL}"/>
+                                        <Text text="{TXTLGFL}"/>
+                                        <Text text="{HIETABFL}"/>
+                                        <Text text="{HIEVERFL}"/>
+                                        <Text text="{HIENMTFL}"/>
+                                        <Text text="{HIENDTFL}"/>
+                                        <Text text="{HIEINTFL}"/>
+                                        <Text text="{HIETJOINFL}"/>
+                                        <Text text="{HIESIGNCH}"/>
+                                        <Text text="{CMPSTA}"/>
+                                        <Text text="{COMPIOBJ}"/>
+                                        <Text text="{ATTRFLG}"/>
+                                    </cells>
+                                </ColumnListItem>                                
+                            </items>
+                        </Table>
+
+                        <Table
+                            id="TabBRListupl2"
+                            class="sapUiSizeCompact"
+                            width = "80rem"
+                            growing="true"
+                            growingThreshold="5"
+                            growingScrollToLoad="true"
+                            items="{/}">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <content>
+                                        <Title text="InfoObject Keyfigures" level="H2" textAlign="Center"/>
+                                    </content>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column width="5rem">
+                                    <Text text="InfoObject name" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Catalog" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Version" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Object type" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Data type" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Owner" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Short Description" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Long Description" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="InfoArea" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Keyfigure type" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Fixed currency" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Fixed UOM" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Unit/Currency" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Text Definition" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Aggregation" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Exception Aggregation" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Reference Char for aggregation" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Non Cumulative flag" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Keyfigure high precision" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="BEX Decimal places" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="BEX Display" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <Text text="{IOBJ}"/>
+                                        <Text text="{IOBJCATALOG}"/>
+                                        <Text text="{VERSION}"/>
+                                        <Text text="{OBJTYPE}"/>
+                                        <Text text="{DATATYPE }"/>
+                                        <Text text="{OWNER}"/>
+                                        <Text text="{SHDESC}"/>
+                                        <Text text="{LGDESC}"/>
+                                        <Text text="{INFOAREA}"/>
+                                        <Text text="{SDATATYPE}"/>
+                                        <Text text="{FIXCURR}"/>
+                                        <Text text="{FIXUOM}"/>
+                                        <Text text="{UNIT}"/>
+                                        <Text text="{TXTDEF}"/>
+                                        <Text text="{AGGR}"/>
+                                        <Text text="{EXCEPAGGR}"/>
+                                        <Text text="{REFCHAAGGR}"/>
+                                        <Text text="{NCUMFLG}"/>
+                                        <Text text="{HIGHPRECFLG}"/>
+                                        <Text text="{DECPLACES}"/>
+                                        <Text text="{BEXDISP}"/>
+                                    </cells>
+                                </ColumnListItem>                                
+                            </items>
+                        </Table>
+
+                        <Table
+                            id="TabBRListupl3"
+                            class="sapUiSizeCompact"
+                            width = "80rem"
+                            growing="true"
+                            growingThreshold="10"
+                            growingScrollToLoad="true"
+                            fixedLayout="false"
+                            items="{/}">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <content>
+                                        <Title text="InfoSources" level="H2" textAlign="Center"/>
+                                    </content>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column width="5rem">
+                                    <Text text="InfoSource name" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Description" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Infoarea" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Sequence" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Reference Object" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Key" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <Text text="{OBJ}"/>
+                                        <Text text="{NAME}"/>
+                                        <Text text="{INFOAREA}"/>
+                                        <Text text="{SEQUENCE}"/>
+                                        <Text text="{REFERENCE_OBJ}"/>
+                                        <Text text="{KEY}"/>
+                                    </cells>
+                                </ColumnListItem>                                
+                            </items>
+                        </Table>
+
+                        <Table
+                            id="TabBRListupl4"
+                            class="sapUiSizeCompact"
+                            width = "80rem"
+                            growing="true"
+                            growingThreshold="10"
+                            growingScrollToLoad="true"
+                            fixedLayout="false"
+                            items="{/}">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <content>
+                                        <Title text="Data Store Objects" level="H2" textAlign="Center"/>
+                                    </content>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column width="5rem">
+                                    <Text text="DSO name" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="DSO name (or) Sequence" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Infoarea (or) Key" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Fields" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <Text text="{OBJ}"/>
+                                        <Text text="{NAME_SEQUENCE}"/>
+                                        <Text text="{INFOAREA_KEY}"/>
+                                        <Text text="{FIELDS}"/>
+                                    </cells>
+                                </ColumnListItem>                                
+                            </items>
+                        </Table>
+
+                        <Table
+                            id="TabBRListupl5"
+                            class="sapUiSizeCompact"
+                            width = "80rem"
+                            growing="true"
+                            growingThreshold="10"
+                            growingScrollToLoad="true"
+                            fixedLayout="false"
+                            items="{/}">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <content>
+                                        <Title text="Infocube" level="H2" textAlign="Center" />
+                                    </content>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column width="5rem">
+                                    <Text text="Infocube name" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Sequence" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Name (or) Dimension (or) Field" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Infoarea (or) Map" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <Text text="{OBJ}"/>
+                                        <Text text="{SEQUENCE}"/>
+                                        <Text text="{NAME_DIMENSION_FIELD}"/>
+                                        <Text text="{INFOAREA_MAP}"/>                                    
+                                    </cells>
+                                </ColumnListItem>                                
+                            </items>
+                        </Table>
+
+                            <Table
+                                id="TabBRListupl6"
+                                class="sapUiSizeCompact"
+                                width = "80rem"
+                                growing="true"
+                                growingThreshold="10"
+                                growingScrollToLoad="true"
+                                fixedLayout="false"
+                                items="{/}">
+                                <headerToolbar>
+                                    <OverflowToolbar>
+                                        <content>
+                                            <Title text="Composite Provider/ Multiprovider" level="H2" textAlign="Center" />
+                                        </content>
+                                    </OverflowToolbar>
+                                </headerToolbar>
+                                <columns>
+                                    <Column width="5rem">
+                                        <Text text="Infoprovider name" />
+                                    </Column>
+                                    <Column width="5rem">
+                                        <Text text="Name (or) Dimension id (or) Sequence (or) Fields" />
+                                    </Column>
+                                    <Column width="5rem">
+                                        <Text text="Infoarea (or) Name (or) Fields (or) Sequence (or) InfoProvider" />
+                                    </Column>
+                                    <Column width="5rem">
+                                        <Text text="Fields (or) Object type" />
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <Text text="{OBJ}"/>
+                                            <Text text="{NAME_DIMENSION_SEQUENCE_FIELDS}"/>
+                                            <Text text="{INFOAREA_NAME_FIELDS_SEQUENCE_INFOPROVIDER}"/>
+                                            <Text text="{FIELDS_OBJECTTYPE}"/>                                    
+                                        </cells>
+                                    </ColumnListItem>                                
+                                </items>
+                            </Table>
+
+                            <Table
+                                id="TabBRListupl7"
+                                class="sapUiSizeCompact"
+                                width = "80rem"
+                                growing="true"
+                                growingThreshold="10"
+                                growingScrollToLoad="true"
+                                fixedLayout="false"
+                                items="{/}">
+                                <headerToolbar>
+                                    <OverflowToolbar>
+                                        <content>
+                                            <Title text="Data Transfer Process" level="H2" textAlign="Center" />
+                                        </content>
+                                    </OverflowToolbar>
+                                </headerToolbar>
+                                <columns>
+                                    <Column width="5rem">
+                                        <Text text="Source Type" />
+                                    </Column>
+                                    <Column width="5rem">
+                                        <Text text="Source Name" />
+                                    </Column>
+                                    <Column width="5rem">
+                                        <Text text="Target Type" />
+                                    </Column>
+                                    <Column width="5rem">
+                                        <Text text="Target Name" />
+                                    </Column>
+                                </columns>
+                                <items>
+                                    <ColumnListItem>
+                                        <cells>
+                                            <Text text="{SRCTYP}"/>
+                                            <Text text="{SRCNAME}"/>
+                                            <Text text="{TGTTYP}"/>
+                                            <Text text="{TGTNAME}"/>                                    
+                                        </cells>
+                                    </ColumnListItem>                                
+                                </items>
+                            </Table>
+
+                            <Table
+                                id="TabBRListupl8"
+                                class="sapUiSizeCompact"
+                                width = "80rem"
+                                growing="true"
+                                growingThreshold="10"
+                                growingScrollToLoad="true"
+                                fixedLayout="false"
+                                items="{/}">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <content>
+                                        <Title text="Transformation" level="H2" textAlign="Center" />
+                                    </content>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column width="5rem">
+                                    <Text text="Source Type" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Source Name" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Target Type" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Target Name" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Field" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <Text text="{SRCTYP}"/>
+                                        <Text text="{SRCNAME}"/>
+                                        <Text text="{TGTTYP}"/>
+                                        <Text text="{TGTNAME}"/>                                    
+                                        <Text text="{FIELD}"/>
+                                    </cells>
+                                </ColumnListItem>                                
+                            </items>
+                        </Table>
+
+                        <Table
+                            id="TabBRListupl9"
+                            class="sapUiSizeCompact"
+                            width = "80rem"
+                            growing="true"
+                            growingThreshold="10"
+                            growingScrollToLoad="true"
+                            fixedLayout="false"
+                            items="{/}">
+                            <headerToolbar>
+                                <OverflowToolbar>
+                                    <content>
+                                        <Title text="Process Chains" level="H2" textAlign="Center" />
+                                    </content>
+                                </OverflowToolbar>
+                            </headerToolbar>
+                            <columns>
+                                <Column width="5rem">
+                                    <Text text="Processchain id" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Process Type" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Process type name" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Activity Type" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Sign" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Condition" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Object/ Text" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Preceeding process Type" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Preceeding process name" />
+                                </Column>
+                                <Column width="5rem">
+                                    <Text text="Settings" />
+                                </Column>
+                            </columns>
+                            <items>
+                                <ColumnListItem>
+                                    <cells>
+                                        <Text text="{PROCESSCHAIN}"/>
+                                        <Text text="{PROCESSTYPE}"/>
+                                        <Text text="{PROCESSTYPNAME}"/>
+                                        <Text text="{ACTIVITYTYPE}"/>                                    
+                                        <Text text="{SIGN}"/>
+                                        <Text text="{CONDITION}"/>
+                                        <Text text="{OBJECT_TEXT}"/>
+                                        <Text text="{PRECEDINGPROCESSTYP}"/> 
+                                        <Text text="{PRECEDINGPROCESSNAME}"/>
+                                        <Text text="{SETTING}"/>
+                                    </cells>
+                                </ColumnListItem>                                
+                            </items>
+                        </Table>
+                    
+
+                    </VBox>
+                </l:content>
+            </l:SimpleForm> 
+        </content>
+        <beginButton>
+            <Button text="{i18n>FileuploadCloseButton}" press=".onCloseDialog"/>
+        </beginButton>
+        <endButton>
+            <Button text="{i18n>FileuploadNextButton}" press=".onuplfilepost"/>
+        </endButton>
+    </Dialog>
+</c:FragmentDefinition>

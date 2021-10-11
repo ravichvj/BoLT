@@ -1,0 +1,171 @@
+{
+    "_version": "1.1.0",
+    "start_url": "<startUrl>",
+    "sap.app": {
+        "_version": "1.1.0",
+        "id": "sap/ui/demo/walkthrough",
+        "type": "application",
+        "i18n": "i18n/i18n.properties",
+        "applicationVersion": {
+            "version": "1.1"
+        },
+        "title": "{{appTitle}}",
+        "description": "{{appDescription}}",
+        "dataSources": {
+            "BEND": {
+                "uri": "http://bmh1078076:8003/sap/opu/odata/sap/ZBW_OBJECTS_CREATE_SRV/",
+                "type": "OData",
+                "settings": {   
+                    "odataVersion": "2.0"
+                }
+            },
+            "BRDETAILS": {
+                "uri": "http://bmh1078076:8003/sap/opu/odata/sap/ZBW_OBJECTS_CREATE_SRV/ZBOLT_WP_HEADERSet",
+                "type": "OData",
+                "settings": {
+                    "odataVersion": "2.0"
+                }
+            }            
+        }
+    },
+    "sap.ui5": {
+        "_version": "1.1.0",
+        "resources": {
+            "js": [
+                {
+                    "uri": "component.js"
+                }
+            ],
+            "css": [
+                {
+                    "uri": "css/style.css"
+                }
+            ]
+        },
+        "config": {
+			"fullWidth": true
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+        "dependencies": {
+            "minUI5Version": "1.60",
+            "libs": {
+                "sap.m": {},
+                "sap.uxap": {},
+                "sap.f": {},
+                "sap.ui.core": {}
+            }
+        },
+        "models": {
+            "i18n": {
+                "type": "sap.ui.model.resource.ResourceModel",
+                "settings": {
+                    "bundleName": "sap.ui.demo.walkthrough.i18n.i18n",
+                    "supportedLocales": [
+                        ""
+                    ],
+                    "fallbackLocale": ""
+                },
+                "uri": "<uriRelativeToManifest>"
+            },
+            "BRlist": {
+                "dataSource": "BEND",
+                "settings": {
+                    "json": true, 
+                    "defaultBindingMode": "TwoWay",
+                    "withCredentials" : true,
+                    "user":"KPT5COB",
+                    "password":"Tke^&jc@8",
+                    "useBatch": false                
+                }
+            },
+            "Projectlist": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "/Data files/get_projectlist.json"
+            },
+            "techspec_uploadsample": {
+                "type": "sap.ui.model.json.JSONModel",
+                "uri": "/Data files/post_BRform_upl2.json",
+                "preload": true,
+                "settings": {
+                    "json": true, 
+                    "defaultBindingMode": "TwoWay"
+                }
+            }
+        },
+        "rootView": {
+            "viewName": "sap/ui/demo/walkthrough/view/App",
+            "type": "XML",
+            "async": false,
+            "id": "app"
+        },
+        "handleValidation": false,
+        "routing": {
+			"config": {
+				"routerClass": "sap.f.routing.Router",
+				"viewType": "XML",
+				"viewPath": "sap.ui.demo.BRlist.view",
+				"controlId": "layout",
+				"controlAggregation": "beginColumnPages",
+				"bypassed": {
+					"target": "notFound"
+				},
+				"async": true
+			},
+
+			"routes": [
+				{
+					"pattern": "",
+					"name": "master",
+					"target": "master"
+				},
+				{
+					"pattern": "BRlist>/Brlist/{BR_NO}",
+					"name": "object",
+					"target": [
+						"master",
+						"object"
+					]
+				}
+			],
+
+			"targets": {
+				"master": {
+					"viewName": "BRlist",
+					"viewLevel": 1,
+					"viewId": "master"
+				},
+				"object": {
+					"viewName": "BRDetail",
+					"viewId": "detail",
+					"viewLevel": 1,
+					"controlAggregation": "midColumnPages"
+				},
+				"detailObjectNotFound": {
+					"viewName": "DetailObjectNotFound",
+					"viewId": "detailObjectNotFound",
+					"controlAggregation": "midColumnPages"
+				},
+				"notFound": {
+					"viewName": "NotFound",
+					"viewId": "notFound"
+				}
+			}
+        },
+        "extends": {
+            "component": "<extendedComponentId>",
+            "minVersion": "<minComp1Version>",
+            "extensions": {}
+        }
+    },
+    "sap.platform.abap": {
+        "_version": "1.1.0",
+        "uri": "<uri>"
+    },
+    "sap.platform.hcp": {
+        "_version": "1.1.0",
+        "uri": "<uri>"
+    }
+}
